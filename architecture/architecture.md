@@ -7,13 +7,8 @@ Rol: Een gebruiker met specifieke acties zoals het bekijken van gepubliceerde be
 Relatie: Gebruikt de Single Page Application (SPA) om toegang te krijgen tot deze functies.
 
 Editor (Redacteur)
-Rol: Een redacteur kan nieuwe berichten maken, berichten opslaan als concept, berichten wijzigen, en opmerkingen plaatsen bij afgewezen berichten.
+Rol: Een redacteur kan nieuwe berichten maken, berichten opslaan als concept, berichten wijzigen, en opmerkingen plaatsen bij afgewezen berichten, kan berichten goedkeuren of afwijzen en opmerkingen plaatsen bij afgewezen berichten..
 Relatie: Heeft interactie met de SPA om berichten te beheren en krijgt meldingen bij goedkeuring of afwijzing van berichten.
-
-Chief Editor (Hoofdredacteur)
-Rol: Kan berichten goedkeuren of afwijzen en opmerkingen plaatsen bij afgewezen berichten.
-Relatie: Gebruikt de SPA voor het uitvoeren van goedkeurings- en afwijzingsacties.
-
 
 Single Page Application (SPA)
 Rol: Biedt de functionaliteit van de applicatie in een webbrowser en stelt gebruikers in staat om berichten te bekijken, bewerken, goedkeuren, en op reacties te reageren.
