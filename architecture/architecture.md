@@ -1,6 +1,7 @@
 # Architecture
 
 
+![C4-java drawio](https://github.com/user-attachments/assets/a2752677-1a11-4405-a684-1d7ffe051839)
 
 User (Gebruiker)
 Rol: Een gebruiker met specifieke acties zoals het bekijken van gepubliceerde berichten, filteren op basis van specificaties, reageren op berichten, en beheren van eigen reacties.
