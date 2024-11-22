@@ -1,0 +1,56 @@
+version: '3.7'
+
+services:
+  mysql-post:
+    image: mysql:latest
+    ports:
+      - '3306:3306'
+    restart: always
+    environment:
+      MYSQL_DATABASE: postservice_db
+      #      MYSQL_USER: root
+      #      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - mysql-post-data:/var/lib/mysql
+      - ./mysql-post/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  mysql-review:
+    image: mysql:latest
+    ports:
+      - '3307:3306'
+    restart: always
+    environment:
+      MYSQL_DATABASE: reviewservice_db
+      #      MYSQL_USER: root
+      #      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - mysql-review-data:/var/lib/mysql
+
+  mysql-comment:
+    image: mysql:latest
+    ports:
+      - '3308:3306'
+    restart: always
+    environment:
+      MYSQL_DATABASE: commentservice_db
+      #      MYSQL_USER: root
+      #      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - mysql-comment-data:/var/lib/mysql
+
+
+  rabbitmq:
+    image: "rabbitmq:3-management-alpine"
+    ports:
+      - "5672:5672"  # RabbitMQ default port
+      - "15672:15672"  # RabbitMQ Management Console
+    restart: always
+
+
+volumes:
+  mysql-post-data:
+  mysql-review-data:
+  mysql-comment-data:
