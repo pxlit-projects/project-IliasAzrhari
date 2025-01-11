@@ -29,7 +29,9 @@
 		<module>ConfigService</module>
         <module>NotificationService</module>
 		<module>NotificationService</module>
-	</modules>
+        <module>GatewayService</module>
+        <module>MessagingService</module>
+    </modules>
 	<scm>
 		<connection/>
 		<developerConnection/>

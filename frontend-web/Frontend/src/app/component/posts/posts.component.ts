@@ -24,16 +24,16 @@ export class PostsComponent implements OnInit {
   constructor(private readonly postService: PostsService) { }
 
   ngOnInit(): void {
-    this.postService.getPublishedPosts().subscribe(
-      (data) => {
+    this.postService.getPublishedPosts().subscribe({
+      next:(data) => {
         this.allPosts = data;
         console.log('Posts:', data);
         console.log('Logged post:', this.loggedInUser);
         console.log('Role:', this.role);
       },
-      (error) => {
+      error:(error) => {
         console.error('Error fetching posts:', error);
       }
-    );
+    });
   }
 }

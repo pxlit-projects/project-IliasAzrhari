@@ -1,5 +1,6 @@
 # Architecture
 
+![C4-java drawio](https://github.com/user-attachments/assets/9fd90a64-06ab-47be-b78d-e099c836f2f5)
 
 
 User (Gebruiker)
@@ -7,7 +8,7 @@ Rol: Een gebruiker met specifieke acties zoals het bekijken van gepubliceerde be
 Relatie: Gebruikt de Single Page Application (SPA) om toegang te krijgen tot deze functies.
 
 Editor (Redacteur)
-Rol: Een redacteur kan nieuwe berichten maken, berichten opslaan als concept, berichten wijzigen, en opmerkingen plaatsen bij afgewezen berichten, kan berichten goedkeuren of afwijzen en opmerkingen plaatsen bij afgewezen berichten..
+Rol: Een redacteur kan nieuwe berichten maken, berichten opslaan als concept, berichten wijzigen, en opmerkingen plaatsen bij afgewezen berichten, kan berichten goedkeuren of afwijzen en opmerkingen plaatsen bij afgewezen berichten.
 Relatie: Heeft interactie met de SPA om berichten te beheren en krijgt meldingen bij goedkeuring of afwijzing van berichten.
 
 Single Page Application (SPA)
@@ -59,4 +60,35 @@ Relaties en Interactie
 API-aanroepen: De SPA maakt HTTP-aanroepen naar de verschillende service API’s (PostService API, ReviewService API, en CommentService API) voor toegang tot respectievelijke functionaliteiten.
 Messaging/Communicatie: De RabbitMQ Container fungeert als een tussenlaag voor berichtenuitwisseling tussen de microservices, waardoor asynchrone communicatie mogelijk is. Dit stelt de services in staat om berichten te publiceren en te consumeren zonder directe afhankelijkheden.
 Data Opslag: Elke service heeft een eigen SQL-database voor het opslaan van zijn specifieke gegevens (berichten, beoordelingen, reacties). De API’s van elke service beheren de toegang tot hun respectievelijke databases.
+
+Communicatie via OpenFeign
+API Gateway → Microservices
+OpenFeign wordt gebruikt als een declaratieve REST-client om communicatie tussen de API Gateway en de individuele services (zoals PostService, ReviewService, en CommentService) te vergemakkelijken. Dit houdt in:
+
+Wanneer een gebruiker of redacteur via de Single Page Application (SPA) een actie uitvoert (zoals een nieuw artikel creëren of een reactie plaatsen), stuurt de SPA een API-aanroep naar de Gateway.
+De Gateway stuurt vervolgens de aanvraag door naar de juiste service door OpenFeign te gebruiken, bijvoorbeeld:
+PostService API voor het creëren van nieuwe artikelen.
+ReviewService API voor het ophalen of verwerken van goedkeuringen en afwijzingen.
+CommentService API voor het aanmaken, wijzigen, of verwijderen van reacties.
+Service-to-Service communicatie via OpenFeign
+OpenFeign wordt ook gebruikt voor interne communicatie tussen microservices, zoals:
+
+ReviewService ↔ PostService: De ReviewService gebruikt OpenFeign om informatie op te vragen over specifieke artikelen wanneer een goedkeuringsproces plaatsvindt.
+CommentService ↔ PostService: De CommentService gebruikt OpenFeign om te verifiëren of een artikel bestaat voordat een nieuwe reactie wordt toegevoegd.
+Communicatie via Message Bus (RabbitMQ)
+Publiceren van berichten
+
+De PostService API publiceert een bericht op de RabbitMQ-queue wanneer een nieuw artikel wordt aangemaakt of een bestaande wordt gewijzigd.
+De ReviewService API publiceert een bericht wanneer een artikel wordt goedgekeurd of afgewezen.
+De CommentService API publiceert een bericht wanneer een nieuwe reactie wordt toegevoegd of een reactie wordt verwijderd.
+Consumenten van berichten
+
+ReviewService consumeert berichten van de queue om bij te houden welke artikelen goedgekeurd of afgewezen moeten worden.
+CommentService consumeert berichten om de reacties bij te werken na een specifieke actie (bijvoorbeeld als een artikel wordt verwijderd, wordt een bericht gepubliceerd zodat alle bijbehorende reacties ook verwijderd kunnen worden).
+Notificaties aan klanten
+
+Een ander voorbeeld van de message bus is het sturen van notificaties:
+Als een artikel is goedgekeurd of een reactie wordt geplaatst, kan een notificatieservice een bericht op de queue zetten.
+Een aparte service (bijvoorbeeld een EmailService) consumeert dit bericht en verstuurt een email naar de gebruiker.
+
 

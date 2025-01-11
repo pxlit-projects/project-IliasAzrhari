@@ -6,7 +6,6 @@ import {AuthService} from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   imports: [
-    RouterLink,
     FormsModule
   ],
   standalone: true,

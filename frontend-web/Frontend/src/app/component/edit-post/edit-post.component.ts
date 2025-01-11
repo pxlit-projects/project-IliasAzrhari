@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {PostsService} from '../../services/posts.service';
 import {DatePipe} from '@angular/common';
 import {NavbarComponent} from '../navbar/navbar.component';
+import {ReviewService} from '../../services/review.service';
 
 @Component({
   selector: 'app-edit-post',
@@ -21,6 +22,7 @@ export class EditPostComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   post!: Post;
   router: Router = inject(Router);
+  userRole: string = localStorage.getItem('role') || '';
   postId!: number;
   newTitle!: string;
   newContent!: string;
@@ -28,13 +30,13 @@ export class EditPostComponent implements OnInit {
   newDate!: string;
   concept!: boolean;
 
-  constructor(private readonly postService: PostsService, private readonly datePipe: DatePipe) {}
+  constructor(private readonly postService: PostsService, private readonly reviewService: ReviewService ,private readonly datePipe: DatePipe) {}
 
   ngOnInit(): void {
     console.log(this.route.snapshot.params['id']);
     this.postId = this.route.snapshot.params['id'];
-    this.postService.getPostById(this.postId).subscribe(
-      (data) => {
+    this.postService.getPostById(this.postId).subscribe({
+      next:(data) => {
         console.log(data);
         this.post = data;
         this.newTitle = this.post.title;
@@ -43,10 +45,10 @@ export class EditPostComponent implements OnInit {
         this.newDate = this.datePipe.transform(this.post.date, 'yyyy-MM-dd')!;
         this.concept = this.post.concept;
       },
-      (error) => {
+      error:(error) => {
         console.error('Error fetching post:', error);
       }
-    );
+    });
   }
 
   updatePost() {
@@ -55,9 +57,8 @@ export class EditPostComponent implements OnInit {
     this.post.author = this.newAuthor;
     this.post.date = this.newDate;
     console.log(this.post);
-    //const source = this.route.snapshot.queryParams['source'];
-    this.postService.updatePost(this.post).subscribe(
-      (data) => {
+    this.postService.updatePost(this.post, this.userRole).subscribe({
+      next:(data) => {
         console.log('Post updated:', data);
         if (this.post.concept) {
           this.router.navigate(['/concepts']);
@@ -65,15 +66,14 @@ export class EditPostComponent implements OnInit {
           this.router.navigate(['/posts']);
         }
       },
-      (error) => {
+      error:(error) => {
         console.error('Error updating post:', error);
       }
-    );
+    });
   }
 
   cancelEdit() {
-    // const source = this.route.snapshot.queryParams['source'];
-    if (this.post.concept) {
+    if (this.post.concept != null) {
       this.router.navigate(['/concepts']);
     } else {
       this.router.navigate(['/posts']);

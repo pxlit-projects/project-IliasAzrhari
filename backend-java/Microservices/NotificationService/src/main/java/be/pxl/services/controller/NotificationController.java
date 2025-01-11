@@ -20,4 +20,12 @@ public class NotificationController {
     public void sendMessage(@RequestBody Notification notification){
         notificationService.sendMessage(notification);
     }
+
+    @PostMapping("/sendEmail")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void sendEmail(@RequestParam String to, @RequestParam String subject ,@RequestBody Notification notification){
+        notificationService.sendEmail(to, subject, notification);
+    }
+
+
 }

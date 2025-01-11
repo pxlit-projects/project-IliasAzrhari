@@ -1,0 +1,142 @@
+<div class="datepicker datepicker-dropdown fixed inset-0 flex items-center justify-center z-50 pt-2 active datepicker-orient-bottom
+      datepicker-orient-left">
+  <div class="datepicker-picker inline-block rounded-lg bg-white dark:bg-gray-700 shadow-lg p-4">
+    <!--          header-->
+    <div class="datepicker-header">
+      <div class="datepicker-title bg-white dark:bg-gray-700 dark:text-white px-2 py-3 text-center font-semibold" style="display: none;">
+      </div>
+      <div class="datepicker-controls flex justify-between mb-2">
+        <button (click)="previousMonth()" type="button" class="bg-white dark:bg-gray-700 rounded-lg text-gray-500 dark:text-white hover:bg-gray-100
+              dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white text-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-gray-200 prev-btn">
+          <svg class="w-4 h-4 rtl:rotate-180 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 514-5"/>
+          </svg>
+        </button>
+        <button type="button" class="text-sm rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-700 font-semibold
+              py-2.5 px-5 hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 view-switch">{{this.monthString}} {{this.year}}</button>
+        <button (click)="nextMonth()" type="button" class="bg-white dark:bg-gray-700 rounded-lg text-gray-500 dark:text-white hover:bg-gray-100
+              dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white text-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-gray-200 next-btn">
+          <svg class="w-4 h-4 rtl:rotate-180 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!--          contetn-->
+    <div class="datepicker-main p-1">
+      <div class="datepicker-view-flex">
+        <div class="days">
+          <div class="days-of-the-week grid grid-cols-7 mb-1">
+            <span class="dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400">Su</span>
+            <span class="dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400">Mo</span>
+            <span class="dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400">Tu</span>
+            <span class="dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400">We</span>
+            <span class="dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400">Th</span>
+            <span class="dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400">Fr</span>
+            <span class="dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400">Sa</span>
+          </div>
+          <div class="datepicker-grid w-64 grid grid-cols-7">
+              <span (click)="selectDate(1)" (keydown.enter)="selectDate(1)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">1</span>
+            <span (click)="selectDate(2)" (keydown.enter)="selectDate(2)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">2</span>
+            <span (click)="selectDate(3)" (keydown.enter)="selectDate(3)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">3</span>
+            <span (click)="selectDate(4)" (keydown.enter)="selectDate(4)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">4</span>
+            <span (click)="selectDate(5)" (keydown.enter)="selectDate(5)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">5</span>
+            <span (click)="selectDate(6)" (keydown.enter)="selectDate(6)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">6</span>
+            <span (click)="selectDate(7)" (keydown.enter)="selectDate(7)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">7</span>
+            <span (click)="selectDate(8)" (keydown.enter)="selectDate(8)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">8</span>
+            <span (click)="selectDate(9)" (keydown.enter)="selectDate(9)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">9</span>
+            <span (click)="selectDate(10)" (keydown.enter)="selectDate(10)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">10</span>
+            <span (click)="selectDate(11)" (keydown.enter)="selectDate(11)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">11</span>
+            <span (click)="selectDate(12)" (keydown.enter)="selectDate(12)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">12</span>
+            <span (click)="selectDate(13)" (keydown.enter)="selectDate(13)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">13</span>
+            <span (click)="selectDate(14)" (keydown.enter)="selectDate(14)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">14</span>
+            <span (click)="selectDate(15)" (keydown.enter)="selectDate(15)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">15</span>
+            <span (click)="selectDate(16)" (keydown.enter)="selectDate(16)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">16</span>
+            <span (click)="selectDate(17)" (keydown.enter)="selectDate(17)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">17</span>
+            <span (click)="selectDate(18)" (keydown.enter)="selectDate(18)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">18</span>
+            <span (click)="selectDate(19)" (keydown.enter)="selectDate(19)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">19</span>
+            <span (click)="selectDate(20)" (keydown.enter)="selectDate(20)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">20</span>
+            <span (click)="selectDate(21)" (keydown.enter)="selectDate(21)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">21</span>
+            <span (click)="selectDate(22)" (keydown.enter)="selectDate(22)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">22</span>
+            <span (click)="selectDate(23)" (keydown.enter)="selectDate(23)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">23</span>
+            <span (click)="selectDate(24)" (keydown.enter)="selectDate(24)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">24</span>
+            <span (click)="selectDate(25)" (keydown.enter)="selectDate(25)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">25</span>
+            <span (click)="selectDate(26)" (keydown.enter)="selectDate(26)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">26</span>
+            <span (click)="selectDate(27)" (keydown.enter)="selectDate(27)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">27</span>
+            <span (click)="selectDate(28)" (keydown.enter)="selectDate(28)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">28</span>
+            <span (click)="selectDate(29)" (keydown.enter)="selectDate(29)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">29</span>
+            <span (click)="selectDate(30)" (keydown.enter)="selectDate(30)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">30</span>
+            <span (click)="selectDate(31)" (keydown.enter)="selectDate(31)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day text-center" data-date="1733007600000">31</span>
+
+            <span (click)="selectDate(1)" (keydown.enter)="selectDate(1)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">1</span>
+            <span (click)="selectDate(2)" (keydown.enter)="selectDate(2)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">2</span>
+            <span (click)="selectDate(3)" (keydown.enter)="selectDate(3)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">3</span>
+            <span (click)="selectDate(4)" (keydown.enter)="selectDate(4)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">4</span>
+            <span (click)="selectDate(5)" (keydown.enter)="selectDate(5)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">5</span>
+            <span (click)="selectDate(6)" (keydown.enter)="selectDate(6)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">6</span>
+            <span (click)="selectDate(7)" (keydown.enter)="selectDate(7)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">7</span>
+            <span (click)="selectDate(8)" (keydown.enter)="selectDate(8)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">8</span>
+            <span (click)="selectDate(9)" (keydown.enter)="selectDate(9)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">9</span>
+            <span (click)="selectDate(10)" (keydown.enter)="selectDate(10)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">10</span>
+            <span (click)="selectDate(11)" (keydown.enter)="selectDate(11)" class="datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer
+               text-gray-900 dark:text-white font-semibold text-sm day next text-center" data-date="1733007600000">11</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--          footer-->
+    <div class="datepicker-footer">
+      <div class="datepicker-controls flex space-x-2 rtl:space-x-reverse mt-2">
+        <button type="button" class="button today-btn text-white bg-lime-700 !bg-primary-700
+          dark:bg-lime-600 dark:!bg-primary-600 hover:bg-lime-800 hover:!bg-primary-800
+          dark:hover:bg-lime-700 dark:hover:!bg-primary-700 focus:ring-4 focus:ring-line-300 focus:!ring-primary-300
+          font-medium rounded-lg text-sm px-5 py-2 text-center w-1/2" style="display: none;">Today</button>
+        <button type="button" class="button cancel-btn text-white bg-lime-700 !bg-primary-700
+          dark:bg-lime-600 dark:!bg-primary-600 hover:bg-lime-800 hover:!bg-primary-800
+          dark:hover:bg-lime-700 dark:hover:!bg-primary-700 focus:ring-4 focus:ring-line-300 focus:!ring-primary-300
+          font-medium rounded-lg text-sm px-5 py-2 text-center w-1/2" style="display: none;">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

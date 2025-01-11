@@ -18,4 +18,6 @@ public interface IPostService {
     void deletePost( );
     void updatePost(Long id, PostRequest postRequest);
     Post getById(Long id);
+    void approvePost(Long id);
+    void rejectPost(Long id);
 }

@@ -7,7 +7,7 @@ import {Post} from '../shared/models/post/post.model';
   providedIn: 'root'
 })
 export class PostsService {
-  private readonly apiUrl = "http://localhost:8080/api/posts"
+  private readonly apiUrl = "http://localhost:8095/post/api/posts"
   constructor(private readonly http: HttpClient) { }
 
   getPosts(): Observable<Post[]> {
@@ -22,8 +22,8 @@ export class PostsService {
     return this.http.get<Post[]>(this.apiUrl + "/published");
   }
 
-  addPost(post: Post): Observable<Post> {
-    return this.http.post<Post>(this.apiUrl, post);
+  addPost(post: Post, userRole: string): Observable<Post> {
+    return this.http.post<Post>(this.apiUrl, post, {headers : {'User-Role': userRole}});
   }
 
   getPostByTitle(title: string): Observable<Post> {
@@ -50,7 +50,7 @@ export class PostsService {
     return this.http.get<Post[]>(`${this.apiUrl}/findByDate?date=${date}`);
   }
 
-  updatePost(post: Post): Observable<Post> {
-    return this.http.post<Post>(`${this.apiUrl}/update/${post.id}`, post);
+  updatePost(post: Post, userRole: string): Observable<Post> {
+    return this.http.post<Post>(`${this.apiUrl}/update/${post.id}`, post, {headers : {'User-Role': userRole}});
   }
 }

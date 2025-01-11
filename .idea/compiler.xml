@@ -2,16 +2,19 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="NotificationService" />
         <module name="CommentService" />
         <module name="ConfigService" />
+        <module name="PostService" />
+        <module name="NotificationService" />
         <module name="DiscoveryService" />
         <module name="ReviewService" />
-        <module name="PostService" />
+        <module name="GatewayService" />
+        <module name="MessagingService" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +23,8 @@
       <module name="CommentService" options="-parameters" />
       <module name="ConfigService" options="-parameters" />
       <module name="DiscoveryService" options="-parameters" />
+      <module name="GatewayService" options="-parameters" />
+      <module name="MessagingService" options="-parameters" />
       <module name="NotificationService" options="-parameters" />
       <module name="PostService" options="-parameters" />
       <module name="ReviewService" options="-parameters" />
