@@ -27,7 +27,11 @@
 		<module>CommentService</module>
 		<module>DiscoveryService</module>
 		<module>ConfigService</module>
-	</modules>
+        <module>NotificationService</module>
+		<module>NotificationService</module>
+        <module>GatewayService</module>
+        <module>MessagingService</module>
+    </modules>
 	<scm>
 		<connection/>
 		<developerConnection/>

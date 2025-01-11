@@ -1,6 +1,5 @@
 package be.pxl.services.controller.request;
+import java.time.LocalDate;
 
-import java.util.Date;
-
-public record PostRequest (String author, Date date, String title, String content) {
+public record PostRequest (String author, LocalDate date, String title, String content) {
 }

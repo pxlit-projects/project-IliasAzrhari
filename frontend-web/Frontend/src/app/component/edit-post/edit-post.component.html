@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div>
+  <div class="max-w-sm mx-auto m-5">
+    <div class="mb-5">
+      <label for="base-input-title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+      <input [(ngModel)]="newTitle" type="text" id="base-input-title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    </div>
+    <div class="mb-5">
+      <label for="base-input-author" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Author</label>
+      <input [(ngModel)]="newAuthor" type="text" id="base-input-author" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    </div>
+    <div>
+      <label for="base-input-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
+      <input [(ngModel)]="newDate" type="text" id="base-input-date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    </div>
+    <div class="mt-6">
+      <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
+      <textarea [(ngModel)]="newContent" id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Edit content here..."></textarea>
+    </div>
+    <div class="flex space-x-2 mt-6">
+      <a (click)="updatePost()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-lime-700 rounded-lg hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
+        Save
+      </a>
+      <a (click)="cancelEdit()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-lime-700 rounded-lg hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
+        Cancel
+      </a>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<app-searchbar [postsComponent]="this"></app-searchbar>
+ <div class="flex justify-center">
+   @if(role === 'editor') {
+     <a [routerLink]="['/addPost']" class="mt-6 inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-lime-700 rounded-lg hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
+       add
+     </a>
+   }
+ </div>
+@for (post of allPosts; track post.id) {
+  <div class="post-item flex justify-center items-center text-center mt-6">
+    <div class="w-1/2 m-3 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ post.title }}</h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ post.content }}</p>
+      <div class="flex space-x-2">
+        <a [routerLink]="['/createComment', post.id]" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-lime-700 rounded-lg hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
+          Comment
+        </a>
+        @if(role === 'editor') {
+          <a [routerLink]="['/editPost', post.id]" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-lime-700 rounded-lg hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
+            Edit
+          </a>
+        }
+        <a [routerLink]="['/comments', post.id]" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-lime-700 rounded-lg hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
+          View Comments
+        </a>
+      </div>
+    </div>
+  </div>
+}
+
+
+
+

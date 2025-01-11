@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "posts")
@@ -19,7 +19,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String author;
-    private Date date;
+    private LocalDate date;
     private String title;
     private String content;
     private boolean concept;

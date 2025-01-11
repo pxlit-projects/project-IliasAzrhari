@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+@if (comments.length === 0) {
+  <div class="post-item flex justify-center items-center text-center mt-6">
+    <div class="w-1/2 m-3 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">No Comments Yet</h5>
+    </div>
+  </div>
+}
+@for (comment of comments; track comment.id) {
+  <div class="post-item flex justify-center items-center text-center mt-6">
+    <div class="w-1/2 m-3 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ comment.content }}</h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ comment.author }}</p>
+      <div class="flex space-x-2">
+        @if(currentUser === comment.author) {
+          <a [routerLink]="['/editComment', postId, comment.id]" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-lime-700 rounded-lg hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
+            Edit
+          </a>
+          <a (click)="deleteComment(comment.id)" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-lime-700 rounded-lg hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
+            Delete
+          </a>
+        }
+
+      </div>
+    </div>
+  </div>
+}
