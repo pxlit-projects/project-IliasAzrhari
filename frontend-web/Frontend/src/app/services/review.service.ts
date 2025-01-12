@@ -3,12 +3,13 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Post} from '../shared/models/post/post.model';
 import {Review} from '../shared/models/post/review.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewService {
-  private readonly apiUrl = "http://localhost:8095/review/api/reviews"
+  private readonly apiUrl = environment.apiUrl + "review/api/reviews"
   constructor(private readonly http: HttpClient) { }
 
   getReviews(postId: number): Observable<Review[]> {

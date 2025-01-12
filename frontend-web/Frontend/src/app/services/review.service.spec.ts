@@ -35,7 +35,7 @@ describe('ReviewService', () => {
       expect(reviews).toEqual(dummyReviews);
     });
 
-    const req = httpMock.expectOne('http://localhost:8095/review/api/reviews/1');
+    const req = httpMock.expectOne('http://prod.pxl.be/apireview/api/reviews/1');
     expect(req.request.method).toBe('GET');
     req.flush(dummyReviews);
   });
@@ -47,7 +47,7 @@ describe('ReviewService', () => {
       expect(review).toEqual(dummyReview);
     });
 
-    const req = httpMock.expectOne('http://localhost:8095/review/api/reviews/review/1');
+    const req = httpMock.expectOne('http://prod.pxl.be/apireview/api/reviews/review/1');
     expect(req.request.method).toBe('PUT');
     expect(req.request.headers.get('User-Role')).toBe('admin');
     req.flush(dummyReview);
@@ -60,7 +60,7 @@ describe('ReviewService', () => {
       expect(review).toEqual(dummyReview);
     });
 
-    const req = httpMock.expectOne('http://localhost:8095/review/api/reviews/1');
+    const req = httpMock.expectOne('http://prod.pxl.be/apireview/api/reviews/1');
     expect(req.request.method).toBe('DELETE');
     req.flush(dummyReview);
   });

@@ -3,12 +3,12 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Post} from '../shared/models/post/post.model';
 import {Comment} from '../shared/models/post/comment.model';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CommentService {
-  private readonly apiUrl = "http://localhost:8095/comment/api/comments"
+  private readonly apiUrl =  environment.apiUrl + "comment/api/comments"
   constructor(private readonly http: HttpClient) { }
 
   getComments(): Observable<Comment[]> {
