@@ -16,4 +16,8 @@ export class AuthService {
     localStorage.removeItem('username');
     localStorage.removeItem('role');
   }
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem('username') !== '';
+  }
 }
