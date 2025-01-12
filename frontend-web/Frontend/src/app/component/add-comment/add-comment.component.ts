@@ -1,6 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {NavbarComponent} from '../navbar/navbar.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule, FormGroup, FormBuilder} from '@angular/forms';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {CommentService} from '../../services/comment.service';
 import {Comment} from '../../shared/models/post/comment.model';
@@ -23,8 +23,14 @@ export class AddCommentComponent implements OnInit{
   route: ActivatedRoute = inject(ActivatedRoute);
   router: Router = inject(Router);
   comment!: Comment;
+  commentForm: FormGroup;
 
-  constructor(private readonly commentService: CommentService) {}
+  constructor(private readonly commentService: CommentService, private readonly formBuilder: FormBuilder) {
+    this.commentForm = this.formBuilder.group({
+      author: localStorage.getItem('username'),
+      content: ''
+    });
+  }
 
   ngOnInit(): void {
     this.author = localStorage.getItem('username');
@@ -33,7 +39,7 @@ export class AddCommentComponent implements OnInit{
   addComment() {
     if (this.author) {
       this.comment = {
-        content: this.content,
+        content: this.commentForm.value.content,
         author: localStorage.getItem('username'),
         postId: this.route.snapshot.params['id']
       } as Comment;
