@@ -19,11 +19,21 @@ export class DatepickerComponent {
   returnMonth!: number;
 
   selectDate(day: number){
-    if(this.month + 1 > 12){
+    this.returnMonth = this.month + 1;
+    if(this.returnMonth > 12){
       this.returnMonth = 1;
-    }else{
-      this.returnMonth = this.month + 1;
-    }
+    }else if(this.returnMonth <= 0){
+      //this.month = 12 - this.returnMonth;
+      this.returnMonth = 12 + this.returnMonth;
+     }
+    // else{
+    //   this.returnMonth = this.month + 1;
+    // }
+    console.log(day);
+    console.log(this.year);
+    console.log(this.month);
+    console.log(this.returnMonth);
+
     this.date = `${this.year}-${this.returnMonth.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
 
     if(this.addPostComponent != null){
