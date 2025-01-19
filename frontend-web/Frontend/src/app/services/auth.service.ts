@@ -19,6 +19,6 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const username = localStorage.getItem('username');
-    return username !== 'undefined';
+    return username !== 'undefined' && username !== null;
   }
 }
